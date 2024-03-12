@@ -34,6 +34,7 @@ public class Metodos {
         }
         }); 
         for (Dados d : dados){
+            System.out.println("Nome|Raça");
             System.out.println(d.getNome()+"|"+d.getRaça());
         }
         
@@ -44,12 +45,12 @@ public class Metodos {
         List<Dados> dados = container.query(new Predicate<Dados>(){
         @Override
         public boolean match(Dados o){
-        return o.getNome().equals("Moca");
+        return o.getNome().equals("Café");
         }
         });
         
         Dados d = dados.get(0);
-        d.setNome("Café");
+        d.setNome("moca");
         container.store(d);
         
         System.out.println("Dado(s) atualizado(s) com sucesso.");
