@@ -13,7 +13,7 @@ public class DatabaseApplication extends Metodos{
         ObjectContainer container = Db4oEmbedded.openFile("database.db4o");
         
         System.out.println("Projeto Banco de Dados db4o");
-        System.out.println("o que você deseja fazer?\n 1- adicionar dados\n 2-deletar dados\n 3-buscar dados\n 4-atualizar dados\n 0-sair");
+        System.out.println("o que você deseja fazer?\n 1- adicionar dados\n 2-deletar dados\n 3-buscar dados\n 4-atualizar dados\n 5-imprimir dados\n 0-sair");
         int escolha = scan.nextInt();
         
         switch(escolha){
@@ -38,6 +38,12 @@ public class DatabaseApplication extends Metodos{
             case 4:
                 try{
                     atualizar(container);
+                }finally{
+                    container.close();} 
+            break;
+            case 5:
+                try{
+                    imprimir(container);
                 }finally{
                     container.close();} 
             break;
