@@ -7,17 +7,17 @@ import java.util.List;
 
 
 public class Metodos {
-    public static void adicionar(ObjectContainer container){
-        Dados d = new Dados("Café","Bombaim");
+    public static void adicionar(ObjectContainer container, String addNome, String addRaça){
+        Dados d = new Dados(addNome,addRaça);
         container.store(d);
         System.out.println("Add " + d);
     }
     
-    public static void deletar(ObjectContainer container){
+    public static void deletar(ObjectContainer container, String delDado){
         List<Dados> dados = container.query(new Predicate<Dados>(){
         @Override
         public boolean match(Dados o){
-        return o.getNome().equals("Café");
+        return o.getNome().equals(delDado);
             }
         });
         
@@ -27,11 +27,11 @@ public class Metodos {
         System.out.println(d.getNome()+" foi deletado com sucesso.");
     }
     
-    public static void buscar(ObjectContainer container){
+    public static void buscar(ObjectContainer container, String seaDado){
         List<Dados> dados = container.query(new Predicate<Dados>(){
         @Override
         public boolean match(Dados o){
-            return o.getNome().equals("Café");
+            return o.getNome().equals(seaDado);
         }
         }); 
         for (Dados d : dados){
@@ -42,16 +42,16 @@ public class Metodos {
         
     }
     
-    public static void atualizar(ObjectContainer container){
+    public static void atualizar(ObjectContainer container, String oldNome, String newNome){
         List<Dados> dados = container.query(new Predicate<Dados>(){
         @Override
         public boolean match(Dados o){
-        return o.getNome().equals("Moca");
+        return o.getNome().equals(oldNome);
         }
         });
         
         Dados d = dados.get(0);
-        d.setNome("Café");
+        d.setNome(newNome);
         container.store(d);
         
         System.out.println("Dado(s) atualizado(s) com sucesso.");

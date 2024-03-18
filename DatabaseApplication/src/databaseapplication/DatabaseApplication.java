@@ -19,25 +19,41 @@ public class DatabaseApplication extends Metodos{
         switch(escolha){
             case 1:
                 try{
-                    adicionar(container);
+                    Scanner ler = new Scanner(System.in);
+                    System.out.print("Insira o nome: ");
+                    String addNome = ler.nextLine();
+                    System.out.print("Insira a raça: ");
+                    String addRaça = ler.nextLine();
+                    adicionar(container,addNome,addRaça);
                 }finally{
                     container.close();} 
             break;
             case 2:
                 try{
-                    deletar(container);
+                    Scanner ler = new Scanner(System.in);
+                    System.out.print("Insira o nome a ser deletado: ");
+                    String delDado = ler.nextLine();
+                    deletar(container,delDado);
                 }finally{
                     container.close();} 
             break;
             case 3:
                 try{
-                    buscar(container);
+                    Scanner ler = new Scanner(System.in);
+                    System.out.print("Insira o nome a ser buscado: ");
+                    String seaDado = ler.nextLine();
+                    buscar(container,seaDado);
                 }finally{
                     container.close();} 
             break;
             case 4:
                 try{
-                    atualizar(container);
+                    Scanner ler = new Scanner(System.in);
+                    System.out.print("Insira o nome original: ");
+                    String oldNome = ler.nextLine();
+                    System.out.print("Insira um novo nome: ");
+                    String newNome = ler.nextLine();
+                    atualizar(container,oldNome,newNome);
                 }finally{
                     container.close();} 
             break;
